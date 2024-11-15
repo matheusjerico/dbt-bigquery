@@ -10,10 +10,10 @@ on:
 env:
   DBT_PROJECT_DIR: ./
   DBT_PROFILES_DIR: ./
+  DBT_GCP_JSON_KEY_FILE_LOCATION: /tmp/sa_key_file.json
   DBT_GCP_DATASET: ${{ secrets.GCP_DATASET }}
   DBT_GCP_JSON_KEY_FILE: ${{ secrets.DBT_GCP_JSON_KEY_FILE }}
   DBT_GCP_PROJECT: ${{ secrets.GCP_PROJECT }}
-  DBT_GCP_JSON_KEY_FILE_LOCATION: /tmp/sa_key_file.json
 
 jobs:
   dbt_ci_cd:
@@ -42,10 +42,10 @@ jobs:
 
     - name: Run dbt models
       run: |
-        dbt deps --target dev
-        dbt seed --target dev
-        dbt run --target dev
+        dbt deps
+        dbt seed
+        dbt run
 
     - name: Test dbt models
       run: |
-        dbt test --target dev
+        dbt test
