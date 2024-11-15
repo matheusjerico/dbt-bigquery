@@ -45,7 +45,17 @@ jobs:
         dbt deps
         dbt seed
         dbt run
+      env:
+        DBT_GCP_JSON_KEY_FILE_LOCATION: /tmp/sa_key_file.json
+        DBT_GCP_DATASET: ${{ secrets.GCP_DATASET }}
+        DBT_GCP_JSON_KEY_FILE: ${{ secrets.DBT_GCP_JSON_KEY_FILE }}
+        DBT_GCP_PROJECT: ${{ secrets.GCP_PROJECT }}
 
     - name: Test dbt models
       run: |
         dbt test
+      env:
+        DBT_GCP_JSON_KEY_FILE_LOCATION: /tmp/sa_key_file.json
+        DBT_GCP_DATASET: ${{ secrets.GCP_DATASET }}
+        DBT_GCP_JSON_KEY_FILE: ${{ secrets.DBT_GCP_JSON_KEY_FILE }}
+        DBT_GCP_PROJECT: ${{ secrets.GCP_PROJECT }}
