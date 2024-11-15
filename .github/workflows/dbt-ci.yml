@@ -6,8 +6,6 @@ on:
       - main
   pull_request:
     branches: [ main ]
-  schedule:
-    - cron: '0 8,17 * * *'
 
 env:
   DBT_GCP_DATASET: ${{ secrets.GCP_DATASET }}
