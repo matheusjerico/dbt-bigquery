@@ -41,10 +41,10 @@ jobs:
 
     - name: Run dbt models
       run: |
-        dbt deps
-        dbt seed
-        dbt run
+        dbt deps --target dev
+        dbt seed --target dev
+        dbt run --target dev
 
     - name: Test dbt models
       run: |
-        dbt test
+        dbt test --target dev
