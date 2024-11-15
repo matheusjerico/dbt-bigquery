@@ -3,7 +3,7 @@ matheusjerico_bigquery_project:
     dev:
       # dataset: dbt_tutorial
       dataset: "{{ env_var('DBT_GCP_DATASET') }}"
-      schema: "{{ env_var('DBT_GCP_DATASET') }}"
+      # schema: "{{ env_var('DBT_GCP_DATASET') }}"
       job_execution_timeout_seconds: 300
       job_retries: 1
       # keyfile: /home/magalu/.dbt/sa_key_file.json
