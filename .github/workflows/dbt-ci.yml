@@ -13,7 +13,7 @@ env:
   DBT_GCP_PROJECT: ${{ secrets.GCP_PROJECT }}
 
 jobs:
-  dbt-ci-cd:
+  dbt_ci_cd:
     runs-on: ubuntu-latest
 
     steps:
